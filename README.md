@@ -1,19 +1,31 @@
-# Business Document Intelligence Examples
+# Business Document Intelligence API Examples
 
-Examples for the **Business Document Intelligence API** on RapidAPI.
+Developer examples for the **Business Document Intelligence API** on RapidAPI — an invoice parser, receipt parser, and business-document classification API for turning PDF and image documents into normalized, application-ready JSON.
 
-The API classifies common business documents and extracts normalized JSON from invoices and receipts. This repository contains Python, Node.js, cURL, and PowerShell examples for calling it with real PDF or image files.
-
-**Try the API:** <https://rapidapi.com/bavarianmotive-bavarianmotive-default/api/business-document-intelligence>
+**Try the API on RapidAPI:** <https://rapidapi.com/bavarianmotive-bavarianmotive-default/api/business-document-intelligence>
 
 > This repository contains consumer examples only. The production API implementation remains private.
 
-## What it does
+## Start with your use case
 
-- Extract invoice fields, totals, line items, vendor/customer details, and validation signals.
-- Extract normalized receipt data.
-- Classify invoices, receipts, purchase orders, quotes, bills, statements, and other business documents.
-- Return `X-Request-ID` values that can be kept for troubleshooting.
+- **Invoice parser** — extract invoice fields, vendor/customer details, totals, line items, payment terms, and validation signals with [`python/extract_invoice.py`](python/extract_invoice.py) or [`node/extract-invoice.mjs`](node/extract-invoice.mjs).
+- **Receipt parser** — extract merchant data, transaction details, totals, line items, payment method, card last four, and validation signals with [`python/extract_receipt.py`](python/extract_receipt.py) or [`node/extract-receipt.mjs`](node/extract-receipt.mjs).
+- **Document classification and routing** — classify invoices, receipts, purchase orders, quotes, bills, statements, and other business documents with [`python/classify_document.py`](python/classify_document.py) or [`node/classify-document.mjs`](node/classify-document.mjs).
+
+If you want a complete walkthrough, start with **[Convert an Invoice PDF to JSON with Python](docs/tutorial-python-invoice-to-json.md)**.
+
+## What the API does
+
+Business Document Intelligence is designed for developers who need structured data rather than raw document text.
+
+- Convert invoice PDFs or images into normalized JSON.
+- Convert receipt images or PDFs into normalized JSON.
+- Extract invoice and receipt line items.
+- Return deterministic completeness and arithmetic-reconciliation signals.
+- Classify unknown business documents before routing them to a supported extractor.
+- Return `X-Request-ID` values for troubleshooting and request correlation.
+
+Extraction is currently available for **invoices and receipts**. Other recognized document types are classification-only.
 
 ## Quick start
 
@@ -37,7 +49,7 @@ $env:RAPIDAPI_KEY = "your-rapidapi-key"
 
 Do not commit a live RapidAPI key to source control.
 
-### 3. Run an example
+### 3. Parse your first invoice or receipt
 
 Python invoice extraction:
 
@@ -47,6 +59,13 @@ python -m pip install -r requirements.txt
 python extract_invoice.py /path/to/invoice.pdf
 ```
 
+Python receipt extraction:
+
+```bash
+cd python
+python extract_receipt.py /path/to/receipt.png
+```
+
 Node.js 18+ invoice extraction:
 
 ```bash
@@ -54,9 +73,16 @@ cd node
 node extract-invoice.mjs /path/to/invoice.pdf
 ```
 
+Node.js 18+ receipt extraction:
+
+```bash
+cd node
+node extract-receipt.mjs /path/to/receipt.png
+```
+
 The scripts print the JSON response to stdout and the returned request ID to stderr when available.
 
-## Concrete example
+## Concrete invoice-to-JSON example
 
 A simple synthetic invoice such as:
 
@@ -100,7 +126,7 @@ Send the original file as raw binary data with `Content-Type: application/octet-
 
 Do not JSON-wrap or base64-encode document uploads.
 
-## Examples
+## Examples by language
 
 ### Python
 
