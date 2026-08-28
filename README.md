@@ -2,9 +2,11 @@
 
 Practical examples and tutorials for using the **Business Document Intelligence API** through RapidAPI.
 
-Business Document Intelligence turns invoices, receipts, and common business documents into structured, application-ready JSON. The examples in this repository show how to send original PDF or image files as raw binary data and work with the normalized API responses.
+Business Document Intelligence turns invoices, receipts, and common business documents into structured, application-ready JSON. The examples in this repository show how to send original PDF or image files as raw binary data and work with normalized API responses.
 
 > This repository contains consumer-side examples only. The production API implementation remains private.
+
+**RapidAPI:** <https://rapidapi.com/bavarianmotive-bavarianmotive-default/api/business-document-intelligence>
 
 ## What you can do
 
@@ -79,7 +81,9 @@ cd node
 node extract-invoice.mjs /path/to/invoice.pdf
 ```
 
-The scripts print the API's JSON response to stdout and show the returned request ID on stderr when available.
+cURL and Windows PowerShell 5.1 examples are available in [`curl/README.md`](curl/README.md).
+
+The Python and Node scripts print the API's JSON response to stdout and show the returned request ID on stderr when available.
 
 ## Repository layout
 
@@ -87,6 +91,7 @@ The scripts print the API's JSON response to stdout and show the returned reques
 .
 ├── python/                         # Python examples using requests
 ├── node/                           # Node.js 18+ examples using built-in fetch
+├── curl/                           # cURL + Windows PowerShell examples
 ├── docs/
 │   ├── tutorial-python-invoice-to-json.md
 │   └── spotlight-copy.md
