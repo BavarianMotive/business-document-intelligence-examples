@@ -1,0 +1,14 @@
+{
+  "name": "business-document-intelligence-examples",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "invoice": "node extract-invoice.mjs",
+    "receipt": "node extract-receipt.mjs",
+    "classify": "node classify-document.mjs"
+  }
+}
