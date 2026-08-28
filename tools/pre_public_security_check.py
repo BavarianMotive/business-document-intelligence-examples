@@ -28,8 +28,8 @@ FORBIDDEN_SUFFIXES = {
 
 SUSPICIOUS_PATTERNS = [
     (
-        re.compile(r"RAPIDAPI_KEY\s*=\s*(?!your-rapidapi-key(?:\s|$))([^\s#]+)", re.IGNORECASE),
-        "non-placeholder RAPIDAPI_KEY assignment",
+        re.compile(r"RAPIDAPI_KEY\s*=\s*['\"]?(?!your-rapidapi-key\b)[A-Za-z0-9_./+=-]{20,}", re.IGNORECASE),
+        "possible non-placeholder RAPIDAPI_KEY assignment",
     ),
     (
         re.compile(r"(?i)(?:api[_-]?key|token|secret|password)\s*[:=]\s*['\"][A-Za-z0-9_./+=-]{20,}['\"]"),
