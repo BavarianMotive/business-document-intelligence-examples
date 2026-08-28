@@ -12,7 +12,10 @@ Developer examples for the **Business Document Intelligence API** on RapidAPI �
 - **Receipt parser** — extract merchant data, transaction details, totals, line items, payment method, card last four, and validation signals with [`python/extract_receipt.py`](python/extract_receipt.py) or [`node/extract-receipt.mjs`](node/extract-receipt.mjs).
 - **Document classification and routing** — classify invoices, receipts, purchase orders, quotes, bills, statements, and other business documents with [`python/classify_document.py`](python/classify_document.py) or [`node/classify-document.mjs`](node/classify-document.mjs).
 
-If you want a complete walkthrough, start with **[Convert an Invoice PDF to JSON with Python](docs/tutorial-python-invoice-to-json.md)**.
+Complete walkthroughs:
+
+- **Invoice PDF to JSON:** [Convert an Invoice PDF to JSON with Python](docs/tutorial-python-invoice-to-json.md)
+- **Receipt image to JSON:** [Receipt OCR API: Convert Receipt Images to Structured JSON with Python](docs/tutorial-python-receipt-to-json.md)
 
 ## What the API does
 
@@ -82,7 +85,9 @@ node extract-receipt.mjs /path/to/receipt.png
 
 The scripts print the JSON response to stdout and the returned request ID to stderr when available.
 
-## Concrete invoice-to-JSON example
+## Concrete input/output examples
+
+### Invoice PDF to JSON
 
 A simple synthetic invoice such as:
 
@@ -97,7 +102,13 @@ Total: $106.25
 
 maps into fields such as `vendor`, `invoice_number`, `line_items`, `subtotal`, `tax`, and `total`, together with validation and schema metadata.
 
-See **[the full synthetic input/output example](docs/example-invoice.md)** for the corresponding JSON shape.
+See **[the full synthetic invoice input/output example](docs/example-invoice.md)**.
+
+### Receipt image to JSON
+
+A synthetic receipt can map into merchant details, transaction date/time, currency, payment method, card last four, totals, line items, and validation signals.
+
+See **[the full synthetic receipt input/output example](docs/example-receipt.md)**.
 
 ## Endpoints
 
@@ -146,9 +157,12 @@ Do not JSON-wrap or base64-encode document uploads.
 
 See [`curl/README.md`](curl/README.md).
 
-## Tutorial
+## Tutorials
 
-The longer walkthrough is **[Convert an Invoice PDF to JSON with Python](docs/tutorial-python-invoice-to-json.md)**. A shorter version is also published in the Tutorials section of the RapidAPI listing.
+- [Convert an Invoice PDF to JSON with Python](docs/tutorial-python-invoice-to-json.md)
+- [Receipt OCR API: Convert Receipt Images to Structured JSON with Python](docs/tutorial-python-receipt-to-json.md)
+
+A shorter invoice walkthrough is also published in the Tutorials section of the RapidAPI listing.
 
 ## Response structure
 
