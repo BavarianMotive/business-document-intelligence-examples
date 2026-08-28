@@ -94,8 +94,12 @@ The Python and Node scripts print the API's JSON response to stdout and show the
 ├── curl/                           # cURL + Windows PowerShell examples
 ├── docs/
 │   ├── tutorial-python-invoice-to-json.md
-│   └── spotlight-copy.md
+│   ├── spotlight-copy.md
+│   └── PUBLIC_RELEASE_SECURITY_CHECKLIST.md
+├── tools/
+│   └── pre_public_security_check.py
 ├── samples/                        # Put local test documents here; files are gitignored
+├── SECURITY.md
 ├── .env.example
 └── .gitignore
 ```
@@ -108,6 +112,14 @@ Treat invoices and receipts as potentially sensitive business data.
 - Use redacted or synthetic documents for demonstrations.
 - Keep API credentials in environment variables or a secrets manager.
 - When asking for support, include the `X-Request-ID` when useful, but do not post credentials or sensitive source documents in a public issue.
+
+Before publishing or materially updating this repository, run:
+
+```bash
+python tools/pre_public_security_check.py
+```
+
+See [`SECURITY.md`](SECURITY.md) for vulnerability-reporting guidance and [`docs/PUBLIC_RELEASE_SECURITY_CHECKLIST.md`](docs/PUBLIC_RELEASE_SECURITY_CHECKLIST.md) for the public-release checklist.
 
 The API is designed to return at most payment-card last four for receipt payment data and to reject full PAN-like leakage.
 
@@ -132,7 +144,7 @@ Always check the HTTP status before consuming a response as successful output.
 
 Start with:
 
-**[How to extract invoice data from a PDF to JSON with Python](docs/tutorial-python-invoice-to-json.md)**
+**[Convert an Invoice PDF to JSON with Python](docs/tutorial-python-invoice-to-json.md)**
 
 Additional receipt and classification tutorials can be added as the examples evolve.
 
