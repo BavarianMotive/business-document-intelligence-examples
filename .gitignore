@@ -3,6 +3,15 @@
 .env.*
 !.env.example
 
+# Credentials and key material
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+credentials*.json
+secrets*.json
+
 # Python
 __pycache__/
 *.py[cod]
