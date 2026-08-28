@@ -12,6 +12,7 @@ Invoice INV-1042
 Invoice date: 2026-08-15
 Due date: 2026-09-14
 PO: PO-818
+Currency: USD
 
 Bill to: Example Company
 
@@ -33,28 +34,42 @@ A corresponding invoice response can look like:
   "data": {
     "document_type": "invoice",
     "vendor": {
-      "name": "Northwind Office Supply"
+      "name": "Northwind Office Supply",
+      "address": null,
+      "tax_id": null,
+      "email": null,
+      "phone": null
     },
     "customer": {
-      "name": "Example Company"
+      "name": "Example Company",
+      "address": null,
+      "tax_id": null,
+      "email": null,
+      "phone": null
     },
     "invoice_number": "INV-1042",
     "purchase_order_number": "PO-818",
     "invoice_date": "2026-08-15",
     "due_date": "2026-09-14",
     "currency": "USD",
+    "payment_terms": null,
     "subtotal": 100.0,
     "tax": 6.25,
+    "shipping": null,
+    "discount": null,
     "total": 106.25,
     "amount_due": 106.25,
     "line_items": [
       {
         "description": "Office supplies",
+        "sku": null,
         "quantity": 2,
         "unit_price": 50.0,
-        "amount": 100.0
+        "amount": 100.0,
+        "tax_amount": null
       }
-    ]
+    ],
+    "notes": null
   },
   "validation": {
     "core_fields_complete": true,
