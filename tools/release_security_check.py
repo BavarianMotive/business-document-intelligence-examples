@@ -111,12 +111,12 @@ def main() -> int:
                 failures.append(f"{description} found in {normalized}")
 
     if failures:
-        print("Pre-public security check FAILED:")
+        print("Release security check FAILED:")
         for failure in sorted(set(failures)):
             print(f"- {failure}")
         return 1
 
-    print("Pre-public security check PASSED.")
+    print("Release security check PASSED.")
     print("No tracked document samples, key material, direct provider hostnames, or obvious hard-coded credentials were detected.")
     return 0
 
