@@ -1,19 +1,19 @@
 # RapidAPI Spotlight Copy
 
-Draft copy for the first Business Document Intelligence Spotlight after the Python invoice tutorial is published.
+Use this after the Python invoice tutorial is published on the Business Document Intelligence RapidAPI listing.
 
 ## Recommended Spotlight
 
 **Title**
 
 ```text
-Invoice PDF → Structured JSON with Python
+Convert Invoice PDFs to JSON with Python
 ```
 
 **Description**
 
 ```text
-Follow the Python quickstart to upload an invoice through RapidAPI and return normalized invoice data, line items, totals, and validation signals as JSON.
+Build a working invoice parser in Python. Upload a PDF through RapidAPI and receive normalized vendor data, invoice fields, line items, totals, and validation signals as JSON.
 ```
 
 **Call to action**
@@ -24,32 +24,33 @@ Read the tutorial
 
 **Destination**
 
-Use the published RapidAPI tutorial URL once it exists.
+Use the public RapidAPI URL for the published tutorial.
 
 ## Shorter alternative
 
 **Title**
 
 ```text
-Extract Invoices to JSON in Minutes
+Invoice PDF to Structured JSON
 ```
 
 **Description**
 
 ```text
-Build your first invoice-to-JSON workflow with Python and Business Document Intelligence.
+Follow the Python quickstart to turn invoice PDFs into application-ready JSON with Business Document Intelligence.
 ```
 
 ## Positioning notes
 
 Keep the Spotlight focused on the developer outcome rather than generic AI claims.
 
-Good phrases:
+Strong phrases for this use case:
 
 - invoice PDF to JSON;
+- invoice parser API;
 - normalized invoice data;
 - line-item extraction;
 - validation signals;
 - Python quickstart.
 
-Avoid claims such as guaranteed accuracy, 100% OCR accuracy, unlimited usage, compliance certifications that have not been established, or unsupported document extraction types.
+Avoid claims such as guaranteed accuracy, 100% OCR accuracy, unlimited usage, unsupported compliance certifications, or extraction support for document types that are currently classification-only.
