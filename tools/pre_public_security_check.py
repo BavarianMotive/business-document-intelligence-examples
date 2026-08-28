@@ -26,11 +26,6 @@ FORBIDDEN_SUFFIXES = {
     ".webp",
 }
 
-FORBIDDEN_TEXT = {
-    "business-document-intelligence.xbavarianmotive.workers.dev": "provider-only Workers hostname",
-    "RAPIDAPI_PROXY_SECRET": "provider-only RapidAPI proxy secret name",
-}
-
 SUSPICIOUS_PATTERNS = [
     (
         re.compile(r"RAPIDAPI_KEY\s*=\s*(?!your-rapidapi-key(?:\s|$))([^\s#]+)", re.IGNORECASE),
@@ -43,6 +38,14 @@ SUSPICIOUS_PATTERNS = [
     (
         re.compile(r"(?i)authorization\s*[:=]\s*['\"]bearer\s+[A-Za-z0-9_.-]{20,}['\"]"),
         "possible hard-coded bearer token",
+    ),
+    (
+        re.compile(r"https?://[^\s'\"`]+\.workers\.dev", re.IGNORECASE),
+        "direct Workers provider hostname",
+    ),
+    (
+        re.compile(r"rapidapi[_-]?proxy[_-]?secret", re.IGNORECASE),
+        "provider-only marketplace secret name",
     ),
 ]
 
@@ -103,10 +106,6 @@ def main() -> int:
             failures.append(f"non-UTF-8 tracked file requires manual review: {normalized}")
             continue
 
-        for needle, description in FORBIDDEN_TEXT.items():
-            if needle in text:
-                failures.append(f"{description} found in {normalized}")
-
         for pattern, description in SUSPICIOUS_PATTERNS:
             if pattern.search(text):
                 failures.append(f"{description} found in {normalized}")
@@ -118,7 +117,7 @@ def main() -> int:
         return 1
 
     print("Pre-public security check PASSED.")
-    print("No tracked document samples, key material, provider-only origin, or obvious hard-coded credentials were detected.")
+    print("No tracked document samples, key material, direct provider hostnames, or obvious hard-coded credentials were detected.")
     return 0
 
 
